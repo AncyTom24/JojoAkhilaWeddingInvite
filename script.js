@@ -25,7 +25,9 @@
     setMeta("description", config.share && config.share.description);
     setMeta("property", "og:title", config.share && config.share.title);
     setMeta("property", "og:description", config.share && config.share.description);
+    setMeta("property", "og:url", config.share && config.share.url);
     setMeta("property", "og:image", config.share && config.share.image);
+    setMeta("property", "og:image:secure_url", config.share && config.share.image);
     setMeta("name", "twitter:title", config.share && config.share.title);
     setMeta("name", "twitter:description", config.share && config.share.description);
     setMeta("name", "twitter:image", config.share && config.share.image);
@@ -55,18 +57,21 @@
       button.disabled = true;
       window.setTimeout(() => {
         cover.classList.add("is-flap-open");
-      }, 180);
+      }, 120);
+      window.setTimeout(() => {
+        cover.classList.add("is-envelope-open");
+      }, 760);
       window.setTimeout(() => {
         cover.classList.add("is-card-rise");
-      }, 1400);
+      }, 1550);
       window.setTimeout(() => {
         cover.classList.add("is-open");
         document.body.classList.remove("locked");
         window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 4400);
+      }, 4300);
       window.setTimeout(() => {
         cover.setAttribute("aria-hidden", "true");
-      }, 5200);
+      }, 5100);
       await playMusic(audio, musicToggle);
     });
 
