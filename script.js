@@ -54,13 +54,19 @@
       cover.classList.add("is-opening");
       button.disabled = true;
       window.setTimeout(() => {
+        cover.classList.add("is-flap-open");
+      }, 180);
+      window.setTimeout(() => {
+        cover.classList.add("is-card-rise");
+      }, 1400);
+      window.setTimeout(() => {
         cover.classList.add("is-open");
         document.body.classList.remove("locked");
         window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 2800);
+      }, 4400);
       window.setTimeout(() => {
         cover.setAttribute("aria-hidden", "true");
-      }, 3600);
+      }, 5200);
       await playMusic(audio, musicToggle);
     });
 

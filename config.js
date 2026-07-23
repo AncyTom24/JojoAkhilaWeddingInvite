@@ -16,7 +16,7 @@ window.INVITATION_CONFIG = {
   share: {
     title: "Jojo Tom & Akhila Thomas Wedding Invitation",
     description: "You are lovingly invited to our wedding on 14 Sep 2026 at 11 am.",
-    image: "assets/images/golden-wedding-cover.png"
+    image: "assets/images/share-preview.png"
   },
   assets: {
     cover: "assets/images/golden-wedding-cover.png",

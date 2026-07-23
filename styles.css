@@ -65,6 +65,7 @@ a {
   place-items: center;
   min-height: 100svh;
   overflow: hidden;
+  background: var(--paper);
   transition: transform 1.05s cubic-bezier(0.77, 0, 0.18, 1), opacity 0.8s ease, visibility 0.8s ease;
 }
 
@@ -77,7 +78,7 @@ a {
 
 .cover.is-opening .cover-content {
   opacity: 0;
-  transform: translateY(32px) scale(0.98);
+  transform: translate(-50%, 26px) scale(0.98);
 }
 
 .cover-image,
@@ -91,35 +92,35 @@ a {
 .cover-image {
   object-fit: cover;
   transform: scale(1.02);
+  opacity: 0;
 }
 
 .cover-shade {
   background:
-    radial-gradient(circle at 50% 42%, rgba(255, 250, 237, 0.2), rgba(52, 36, 20, 0.34)),
-    linear-gradient(180deg, rgba(42, 28, 18, 0.1), rgba(38, 23, 14, 0.48));
+    radial-gradient(circle at 50% 42%, rgba(255, 250, 237, 0.08), rgba(52, 36, 20, 0.05)),
+    linear-gradient(180deg, rgba(251, 245, 234, 0.1), rgba(251, 245, 234, 0.2));
 }
 
 .envelope-stage {
   position: relative;
   z-index: 2;
-  width: min(94vw, 620px);
+  width: 100%;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   perspective: 1200px;
-  padding: 28px 0 max(28px, env(safe-area-inset-bottom));
+  padding: 0;
 }
 
 .envelope {
-  position: relative;
-  width: min(94vw, 600px);
-  height: min(72vw, 520px);
-  min-height: 300px;
-  max-height: 540px;
-  margin-bottom: 20px;
-  overflow: visible;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
   background: transparent;
   transform: translateY(0) rotateX(0deg);
   transform-style: preserve-3d;
@@ -127,18 +128,7 @@ a {
 }
 
 .envelope::after {
-  content: "";
-  position: absolute;
-  left: 4%;
-  right: 4%;
-  bottom: -8%;
-  height: 16%;
-  z-index: -1;
-  border-radius: 50%;
-  pointer-events: none;
-  background: radial-gradient(circle, rgba(62, 37, 20, 0.28), transparent 68%);
-  filter: blur(10px);
-  opacity: 0.72;
+  display: none;
 }
 
 .envelope-art,
@@ -148,55 +138,54 @@ a {
 }
 
 .envelope-art {
-  left: 50%;
-  top: 50%;
+  inset: 0;
   display: block;
   width: 100%;
-  height: auto;
-  max-height: 100%;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   pointer-events: none;
-  filter: drop-shadow(0 24px 30px rgba(45, 27, 14, 0.24));
-  transform: translate(-50%, -50%) scale(1);
-  transition: opacity 0.85s ease, transform 1.2s cubic-bezier(0.19, 1, 0.22, 1), filter 1s ease;
+  filter: saturate(1.03) contrast(1.02);
+  transform: scale(1.01);
+  transition: opacity 0.92s ease, transform 1.35s cubic-bezier(0.19, 1, 0.22, 1), filter 1s ease;
 }
 
 .envelope-closed {
   z-index: 5;
   opacity: 1;
+  transform: scale(1.04);
 }
 
 .envelope-open {
-  z-index: 7;
-  width: min(86vw, 500px);
+  z-index: 6;
   opacity: 0;
-  transform: translate(-50%, -47%) scale(0.84);
-  transition-delay: 0.22s;
+  transform: scale(1.08);
+  transition-delay: 0.12s;
 }
 
 .envelope-flap {
   left: 50%;
-  top: 42%;
-  z-index: 8;
-  width: min(76vw, 480px);
-  height: min(24vw, 150px);
+  top: clamp(31%, 40vw, 45%);
+  z-index: 9;
+  width: min(82vw, 660px);
+  height: min(25vw, 190px);
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 239, 228, 0.98));
   box-shadow: 0 14px 24px rgba(64, 43, 25, 0.18);
   opacity: 0;
-  transform: translate(-50%, -50%) rotateX(0deg) scale(0.9);
+  transform: translate(-50%, -50%) rotateX(0deg) scale(0.92);
   transform-origin: 50% 0%;
   backface-visibility: hidden;
-  transition: opacity 0.34s ease, transform 1.08s cubic-bezier(0.19, 1, 0.22, 1), filter 0.8s ease;
+  transition: opacity 0.26s ease, transform 1.12s cubic-bezier(0.19, 1, 0.22, 1), filter 0.8s ease;
 }
 
 .envelope-invitation-card {
   left: 50%;
-  top: 43%;
-  z-index: 6;
-  width: min(62vw, 330px);
-  min-height: 190px;
+  top: 58%;
+  z-index: 8;
+  width: min(72vw, 380px);
+  min-height: clamp(180px, 34vw, 280px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -211,8 +200,8 @@ a {
   border-radius: 6px;
   box-shadow: 0 18px 34px rgba(52, 33, 16, 0.18);
   opacity: 0;
-  transform: translate(-50%, 38%) scale(0.74);
-  transition: transform 1.28s cubic-bezier(0.19, 1, 0.22, 1) 0.34s, opacity 0.8s ease 0.24s;
+  transform: translate(-50%, 44%) scale(0.76);
+  transition: transform 1.32s cubic-bezier(0.19, 1, 0.22, 1) 0.42s, opacity 0.76s ease 0.42s;
 }
 
 .envelope-invitation-card p,
@@ -233,40 +222,48 @@ a {
 }
 
 .cover.is-opening .envelope {
-  transform: translateY(-18px) rotateX(2deg) scale(1.02);
+  transform: translateY(0) rotateX(0deg) scale(1.01);
 }
 
-.cover.is-opening .envelope-closed {
+.cover.is-card-rise .envelope-closed {
   opacity: 0;
-  transform: translate(-50%, -44%) scale(0.92);
-  filter: drop-shadow(0 18px 24px rgba(45, 27, 14, 0.16)) blur(0.3px);
+  transform: scale(1.07);
+  filter: saturate(1.02) contrast(1.02) blur(0.4px);
 }
 
-.cover.is-opening .envelope-open {
+.cover.is-card-rise .envelope-open {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1.04);
-  filter: drop-shadow(0 30px 34px rgba(45, 27, 14, 0.22));
+  transform: scale(1.01);
+  filter: saturate(1.03) contrast(1.02);
 }
 
-.cover.is-opening .envelope-flap {
+.cover.is-flap-open .envelope-flap {
   opacity: 0.96;
-  transform: translate(-50%, -50%) rotateX(178deg) scale(1);
+  transform: translate(-50%, -50%) rotateX(176deg) scale(1);
   filter: brightness(1.03);
 }
 
-.cover.is-opening .envelope-invitation-card {
+.cover.is-card-rise .envelope-flap {
+  opacity: 0;
+  transform: translate(-50%, -74%) rotateX(178deg) scale(1.02);
+}
+
+.cover.is-card-rise .envelope-invitation-card {
   opacity: 1;
-  transform: translate(-50%, -48%) scale(1);
+  transform: translate(-50%, -76%) scale(1);
 }
 
 .cover-content {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  bottom: max(24px, env(safe-area-inset-bottom));
   z-index: 10;
-  width: 100%;
+  width: min(92vw, 420px);
   text-align: center;
   color: #fff8e8;
-  padding: 0 0 2svh;
+  padding: 0;
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.28);
+  transform: translateX(-50%);
   transition: opacity 0.6s ease, transform 0.7s ease;
 }
 
@@ -776,12 +773,6 @@ a {
 }
 
 @media (max-width: 380px) {
-  .envelope {
-    width: 96vw;
-    height: 330px;
-    margin-bottom: 18px;
-  }
-
   .envelope-invitation-card strong {
     font-size: clamp(1.8rem, 9vw, 2.8rem);
   }
