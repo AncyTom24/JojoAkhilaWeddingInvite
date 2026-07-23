@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#fbf5ea">
+    <title>Jojo Tom & Akhila Thomas Wedding Invitation</title>
+    <meta name="description" content="You are lovingly invited to the wedding of Jojo Tom and Akhila Thomas on 14 Sep 2026 at 11 am.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Jojo Tom & Akhila Thomas Wedding Invitation">
+    <meta property="og:description" content="You are lovingly invited to our wedding on 14 Sep 2026 at 11 am.">
+    <meta property="og:image" content="assets/images/golden-wedding-cover.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jojo Tom & Akhila Thomas Wedding Invitation">
+    <meta name="twitter:description" content="You are lovingly invited to our wedding on 14 Sep 2026 at 11 am.">
+    <meta name="twitter:image" content="assets/images/golden-wedding-cover.png">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="preload" as="image" href="assets/images/golden-wedding-cover.png">
+    <link rel="preload" as="image" href="assets/images/envelope-closed-transparent.png">
+    <link rel="preload" as="image" href="assets/images/envelope-open-transparent.png">
+    <link rel="stylesheet" href="styles.css?v=20260723-openenv">
+    <script src="config.js"></script>
+    <script defer src="script.js?v=20260723-openenv"></script>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <main class="invite-shell">
+      <section class="cover" id="cover" aria-label="Opening invitation cover">
+        <img class="cover-image" id="coverImage" src="assets/images/golden-wedding-cover.png" alt="">
+        <div class="cover-shade"></div>
+        <div class="envelope-stage">
+          <div class="envelope" aria-hidden="true">
+            <img class="envelope-art envelope-closed" src="assets/images/envelope-closed-transparent.png" alt="">
+            <div class="envelope-flap"></div>
+            <div class="envelope-invitation-card">
+              <p>Wedding Invitation</p>
+              <strong data-config="firstNames">Jojo & Akhila</strong>
+              <span><span data-config="dateParts.day">14</span> <span data-config="dateParts.month">Sep</span> <span data-config="dateParts.year">2026</span></span>
+            </div>
+            <img class="envelope-art envelope-open" src="assets/images/envelope-open-transparent.png" alt="">
+          </div>
+          <div class="cover-content">
+            <p class="kicker">Wedding Invitation</p>
+            <h1 class="gold-title" data-config="firstNames">Jojo & Akhila</h1>
+            <p class="cover-date"><span data-config="dateParts.day">14</span> <span data-config="dateParts.month">Sep</span> <span data-config="dateParts.year">2026</span></p>
+            <button class="open-button" id="openInvite" type="button" aria-label="Open wedding invitation">
+              <span>Tap to open</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero reveal" aria-label="Couple introduction">
+        <p class="kicker">In the grace of love</p>
+        <h2 class="couple-name shine" data-config="couple">Jojo Tom & Akhila Thomas</h2>
+        <p class="family-note" data-config="familyNote">Together with our families, we request the honour of your presence.</p>
+        <div class="scroll-indicator" aria-hidden="true">
+          <span></span>
+        </div>
+      </section>
+
+      <section class="message-section reveal" aria-label="Invitation message">
+        <p class="section-label">A note from our hearts</p>
+        <p class="invitation-copy" data-config="invitationMessage">
+          With hearts full of gratitude and joy, we invite you to witness the beginning of our forever. Your presence, prayers, and blessings will make this sacred day even more beautiful.
+        </p>
+      </section>
+
+      <section class="scratch-section reveal" id="scratchSection" aria-label="Scratch to reveal wedding date">
+        <p class="section-label">Scratch to reveal</p>
+        <div class="scratch-grid">
+          <article class="scratch-card" data-label="day">
+            <div class="scratch-value" data-config="dateParts.day">14</div>
+            <div class="scratch-caption">Date</div>
+            <canvas aria-label="Scratch date"></canvas>
+          </article>
+          <article class="scratch-card" data-label="month">
+            <div class="scratch-value" data-config="dateParts.month">Sep</div>
+            <div class="scratch-caption">Month</div>
+            <canvas aria-label="Scratch month"></canvas>
+          </article>
+          <article class="scratch-card" data-label="year">
+            <div class="scratch-value" data-config="dateParts.year">2026</div>
+            <div class="scratch-caption">Year</div>
+            <canvas aria-label="Scratch year"></canvas>
+          </article>
+        </div>
+        <p class="scratch-hint">Gently swipe each card</p>
+      </section>
+
+      <section class="countdown-section reveal" aria-label="Countdown timer">
+        <p class="section-label">Until we become one</p>
+        <div class="countdown" id="countdown">
+          <div><strong id="days">00</strong><span>Days</span></div>
+          <div><strong id="hours">00</strong><span>Hours</span></div>
+          <div><strong id="minutes">00</strong><span>Minutes</span></div>
+          <div><strong id="seconds">00</strong><span>Seconds</span></div>
+        </div>
+      </section>
+
+      <section class="guest-colours-section reveal" aria-label="Guest colour suggestion">
+        <p class="section-label">For our guests</p>
+        <h2>Come in the colours of celebration</h2>
+        <p>There's no dress code, just a gentle suggestion, if it suits you: shades of green, champagne, or ivory.</p>
+        <div class="colour-swatches" aria-label="Suggested colours">
+          <div>
+            <span class="swatch swatch-green"></span>
+            <strong>Green</strong>
+          </div>
+          <div>
+            <span class="swatch swatch-champagne"></span>
+            <strong>Champagne</strong>
+          </div>
+          <div>
+            <span class="swatch swatch-ivory"></span>
+            <strong>Ivory</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="venue-section reveal" aria-label="Wedding venue">
+        <p class="section-label">The ceremony</p>
+        <h2 data-config="venue">St Mary's Church, Anickadu</h2>
+        <p><span data-config="dateParts.day">14</span> <span data-config="dateParts.month">Sep</span> <span data-config="dateParts.year">2026</span> at <span data-config="time">11 am</span></p>
+        <a class="map-button" id="mapButton" href="https://maps.app.goo.gl/avqV25Dj3TrEdTP99" target="_blank" rel="noopener">Open map</a>
+      </section>
+
+      <section class="gallery-section reveal" aria-label="Couple photos">
+        <p class="section-label">Our moments</p>
+        <div class="photo-stack" id="photoStack"></div>
+      </section>
+    </main>
+
+    <button class="music-toggle" id="musicToggle" type="button" aria-label="Toggle background music" hidden>
+      <span></span>
+    </button>
+    <audio id="bgMusic" preload="metadata" loop></audio>
+  </body>
+</html>
