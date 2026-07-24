@@ -424,7 +424,7 @@ a {
 .scratch-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  gap: clamp(6px, 2.2vw, 12px);
   width: min(100%, 520px);
   margin: 16px auto 0;
 }
@@ -450,9 +450,17 @@ a {
 }
 
 .scratch-value {
-  font-size: clamp(2.5rem, 14vw, 4.8rem);
+  max-width: 100%;
+  padding: 0 6px;
+  font-size: clamp(2.4rem, 13vw, 4.8rem);
   line-height: 0.9;
   color: #8b641f;
+  white-space: nowrap;
+}
+
+.scratch-card[data-label="year"] .scratch-value {
+  font-size: clamp(1.95rem, 9.5vw, 3.65rem);
+  letter-spacing: 0;
 }
 
 .scratch-caption {
