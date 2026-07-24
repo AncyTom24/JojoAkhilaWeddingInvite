@@ -49,8 +49,16 @@
 
     if (config.assets && config.assets.music) {
       audio.src = config.assets.music;
+      audio.preload = "auto";
+      audio.volume = 0.82;
+      audio.load();
       musicToggle.hidden = false;
     }
+
+    const startMusic = () => playMusic(audio, musicToggle);
+
+    button.addEventListener("pointerdown", startMusic, { once: true });
+    button.addEventListener("touchstart", startMusic, { once: true, passive: true });
 
     button.addEventListener("click", async () => {
       cover.classList.add("is-opening");
@@ -72,26 +80,44 @@
       window.setTimeout(() => {
         cover.setAttribute("aria-hidden", "true");
       }, 5100);
-      await playMusic(audio, musicToggle);
+      await startMusic();
     });
 
     musicToggle.addEventListener("click", async () => {
       if (audio.paused) {
         await playMusic(audio, musicToggle);
       } else {
-        audio.pause();
-        musicToggle.classList.remove("is-playing");
+        stopMusic(audio, musicToggle);
       }
+    });
+
+    window.addEventListener("pagehide", () => stopMusic(audio, musicToggle));
+    window.addEventListener("beforeunload", () => stopMusic(audio, musicToggle));
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") stopMusic(audio, musicToggle);
     });
   }
 
   async function playMusic(audio, toggle) {
     if (!audio.src) return;
     try {
+      audio.muted = false;
       await audio.play();
       toggle.classList.add("is-playing");
+      toggle.classList.remove("needs-tap");
     } catch (error) {
       toggle.classList.remove("is-playing");
+      toggle.classList.add("needs-tap");
+    }
+  }
+
+  function stopMusic(audio, toggle) {
+    if (!audio) return;
+    audio.pause();
+    audio.currentTime = 0;
+    if (toggle) {
+      toggle.classList.remove("is-playing");
+      toggle.classList.remove("needs-tap");
     }
   }
 

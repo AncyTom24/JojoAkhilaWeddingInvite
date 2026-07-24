@@ -21,7 +21,7 @@ window.INVITATION_CONFIG = {
   },
   assets: {
     cover: "assets/images/golden-wedding-cover.png",
-    music: "",
+    music: "assets/music/lightkeeper.mp3",
     photos: [
       "assets/photos/couple-portrait.jpeg",
       "assets/photos/couple-ring-moment.jpeg",
